@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="Enemy" load_steps=5 format=3 uid="uid://do87arefo2sfr"]
+
+[ext_resource type="Script" path="res://Classes/Attack.gd" id="1_rc171"]
+[ext_resource type="Script" path="res://Classes/Enemy.gd" id="2_cumrs"]
+[ext_resource type="Texture2D" uid="uid://b4mra6afvi38" path="res://Sprites/10.png" id="3_n0hpm"]
+
+[sub_resource type="Resource" id="Resource_vfhp8"]
+script = ExtResource("1_rc171")
+name = "Gorge slam"
+damage_multiplier = 7
+hits = 7
+isAOE = false
+
+[resource]
+script = ExtResource("2_cumrs")
+name = "Gorge"
+texture = ExtResource("3_n0hpm")
+health = 70
+attack = 14
+defense = 18
+basic = SubResource("Resource_vfhp8")
