@@ -1,6 +1,6 @@
 extends MarginContainer
 
-@export var data : Enemy
+@export var data : Character
 
 # Called when the node enters the scene tree for the first time.
 func _ready():

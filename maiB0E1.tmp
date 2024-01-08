@@ -1,0 +1,154 @@
+[gd_scene load_steps=9 format=3 uid="uid://djqxendqclm8j"]
+
+[ext_resource type="Texture2D" uid="uid://b0syytgp3u5e6" path="res://Sprites/battleback1.png" id="1_3ecbt"]
+[ext_resource type="Script" path="res://BattleController.gd" id="1_os5fl"]
+[ext_resource type="Script" path="res://EnemyInitializer.gd" id="3_j7ibh"]
+[ext_resource type="Resource" uid="uid://c05fli1g4tdll" path="res://Enemies/Bird.tres" id="4_mg7ec"]
+[ext_resource type="Texture2D" uid="uid://da05t4jo3osg0" path="res://icon.svg" id="5_yxisi"]
+[ext_resource type="Resource" uid="uid://do87arefo2sfr" path="res://Enemies/Gorge.tres" id="6_gjiqw"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_84ipq"]
+bg_color = Color(1, 0.32549, 0.411765, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.396078, 0.396078, 0.396078, 1)
+expand_margin_left = 1.0
+expand_margin_top = 1.0
+expand_margin_right = 1.0
+expand_margin_bottom = 1.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5cbla"]
+bg_color = Color(0, 0.753695, 0.275801, 1)
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_os5fl")
+
+[node name="Background" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_3ecbt")
+
+[node name="Actions" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 90.0
+grow_horizontal = 2
+
+[node name="Basic" type="Button" parent="Actions"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Basic
+"
+
+[node name="Skill" type="Button" parent="Actions"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Skill"
+
+[node name="Ultimate" type="Button" parent="Actions"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Ultimate"
+
+[node name="Enemies" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -84.0
+offset_bottom = 78.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="Enemy" type="MarginContainer" parent="Enemies"]
+layout_mode = 2
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_right = 30
+script = ExtResource("3_j7ibh")
+data = ExtResource("4_mg7ec")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Enemies/Enemy"]
+layout_mode = 2
+
+[node name="ProgressBar" type="ProgressBar" parent="Enemies/Enemy/VBoxContainer"]
+custom_minimum_size = Vector2(0, 23)
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_styles/background = SubResource("StyleBoxFlat_84ipq")
+theme_override_styles/fill = SubResource("StyleBoxFlat_5cbla")
+value = 50.0
+show_percentage = false
+
+[node name="Label" type="Label" parent="Enemies/Enemy/VBoxContainer/ProgressBar"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -9.5
+offset_top = -11.5
+offset_right = 9.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="Enemies/Enemy/VBoxContainer"]
+layout_mode = 2
+texture = ExtResource("5_yxisi")
+
+[node name="Enemy2" type="MarginContainer" parent="Enemies"]
+layout_mode = 2
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_right = 30
+script = ExtResource("3_j7ibh")
+data = ExtResource("6_gjiqw")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Enemies/Enemy2"]
+layout_mode = 2
+
+[node name="ProgressBar" type="ProgressBar" parent="Enemies/Enemy2/VBoxContainer"]
+custom_minimum_size = Vector2(0, 23)
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_styles/background = SubResource("StyleBoxFlat_84ipq")
+theme_override_styles/fill = SubResource("StyleBoxFlat_5cbla")
+value = 50.0
+show_percentage = false
+
+[node name="Label" type="Label" parent="Enemies/Enemy2/VBoxContainer/ProgressBar"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -9.5
+offset_top = -11.5
+offset_right = 9.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="Enemies/Enemy2/VBoxContainer"]
+layout_mode = 2
+texture = ExtResource("5_yxisi")

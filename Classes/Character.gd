@@ -1,6 +1,6 @@
 # https://docs.godotengine.org/en/stable/tutorials/scripting/resources.html
 extends Resource
-class_name Enemy
+class_name Character
 
 @export_group("Display")
 @export var name : String
