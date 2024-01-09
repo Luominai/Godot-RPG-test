@@ -1,7 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://djqxendqclm8j"]
+[gd_scene load_steps=10 format=3 uid="uid://djqxendqclm8j"]
 
 [ext_resource type="Texture2D" uid="uid://b0syytgp3u5e6" path="res://Sprites/battleback1.png" id="1_3ecbt"]
 [ext_resource type="Script" path="res://BattleController.gd" id="1_os5fl"]
+[ext_resource type="Script" path="res://Stats.gd" id="3_85ihx"]
 [ext_resource type="Script" path="res://EnemyInitializer.gd" id="3_j7ibh"]
 [ext_resource type="Resource" uid="uid://c05fli1g4tdll" path="res://Enemies/Bird.tres" id="4_mg7ec"]
 [ext_resource type="Texture2D" uid="uid://da05t4jo3osg0" path="res://icon.svg" id="5_yxisi"]
@@ -39,6 +40,34 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("1_3ecbt")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -40.0
+offset_right = 40.0
+grow_vertical = 0
+script = ExtResource("3_85ihx")
+data = ExtResource("6_gjiqw")
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer"]
+layout_mode = 2
+texture = ExtResource("5_yxisi")
+stretch_mode = 2
+
+[node name="health" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "your mother's health"
+
+[node name="attack" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "tattacj"
+
+[node name="defense" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "ppokemon shield"
 
 [node name="Actions" type="HBoxContainer" parent="."]
 layout_mode = 1
