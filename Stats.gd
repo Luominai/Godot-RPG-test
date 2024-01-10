@@ -1,4 +1,4 @@
-extends VBoxContainer
+	extends VBoxContainer
 
 @export var data : Character
 

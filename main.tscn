@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://djqxendqclm8j"]
+[gd_scene load_steps=12 format=3 uid="uid://djqxendqclm8j"]
 
 [ext_resource type="Texture2D" uid="uid://b0syytgp3u5e6" path="res://Sprites/battleback1.png" id="1_3ecbt"]
 [ext_resource type="Script" path="res://BattleController.gd" id="1_os5fl"]
@@ -7,6 +7,8 @@
 [ext_resource type="Resource" uid="uid://c05fli1g4tdll" path="res://Enemies/Bird.tres" id="4_mg7ec"]
 [ext_resource type="Texture2D" uid="uid://da05t4jo3osg0" path="res://icon.svg" id="5_yxisi"]
 [ext_resource type="Resource" uid="uid://do87arefo2sfr" path="res://Enemies/Gorge.tres" id="6_gjiqw"]
+[ext_resource type="Script" path="res://Stage.gd" id="8_abxbq"]
+[ext_resource type="FontFile" uid="uid://o4v580u78pcn" path="res://testfont.ttf" id="9_iscsf"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_84ipq"]
 bg_color = Color(1, 0.32549, 0.411765, 1)
@@ -46,8 +48,9 @@ layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
-offset_top = -40.0
-offset_right = 40.0
+offset_top = -378.0
+offset_right = 163.0
+offset_bottom = -169.0
 grow_vertical = 0
 script = ExtResource("3_85ihx")
 data = ExtResource("6_gjiqw")
@@ -73,7 +76,8 @@ text = "ppokemon shield"
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
-offset_bottom = 90.0
+offset_top = 560.0
+offset_bottom = 650.0
 grow_horizontal = 2
 
 [node name="Basic" type="Button" parent="Actions"]
@@ -181,3 +185,21 @@ vertical_alignment = 1
 [node name="TextureRect" type="TextureRect" parent="Enemies/Enemy2/VBoxContainer"]
 layout_mode = 2
 texture = ExtResource("5_yxisi")
+
+[node name="Stage" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 2.0
+offset_top = -11.0
+offset_right = 4.0
+offset_bottom = 79.0
+grow_horizontal = 2
+rotation = -6.28319
+script = ExtResource("8_abxbq")
+
+[node name="Label" type="Label" parent="Stage"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("9_iscsf")
+theme_override_font_sizes/font_size = 55
+text = "Stage 1 - Wilderness	"
