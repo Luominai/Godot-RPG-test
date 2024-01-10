@@ -48,9 +48,10 @@ layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
-offset_top = -378.0
-offset_right = 163.0
-offset_bottom = -169.0
+offset_left = 36.0
+offset_top = -377.0
+offset_right = 199.0
+offset_bottom = -168.0
 grow_vertical = 0
 script = ExtResource("3_85ihx")
 data = ExtResource("6_gjiqw")
@@ -83,17 +84,20 @@ grow_horizontal = 2
 [node name="Basic" type="Button" parent="Actions"]
 layout_mode = 2
 size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("9_iscsf")
 text = "Basic
 "
 
 [node name="Skill" type="Button" parent="Actions"]
 layout_mode = 2
 size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("9_iscsf")
 text = "Skill"
 
 [node name="Ultimate" type="Button" parent="Actions"]
 layout_mode = 2
 size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("9_iscsf")
 text = "Ultimate"
 
 [node name="Enemies" type="HBoxContainer" parent="."]
@@ -186,20 +190,22 @@ vertical_alignment = 1
 layout_mode = 2
 texture = ExtResource("5_yxisi")
 
-[node name="Stage" type="HBoxContainer" parent="."]
-layout_mode = 1
-anchors_preset = 10
-anchor_right = 1.0
-offset_left = 2.0
-offset_top = -11.0
-offset_right = 4.0
-offset_bottom = 79.0
-grow_horizontal = 2
-rotation = -6.28319
+[node name="VBoxContainer2" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 7.0
+offset_top = 9.0
+offset_right = 502.0
+offset_bottom = 65.0
 script = ExtResource("8_abxbq")
 
-[node name="Label" type="Label" parent="Stage"]
+[node name="StageNumberName" type="Label" parent="VBoxContainer2"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("9_iscsf")
 theme_override_font_sizes/font_size = 55
 text = "Stage 1 - Wilderness	"
+
+[node name="Label" type="Label" parent="VBoxContainer2"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("9_iscsf")
+theme_override_font_sizes/font_size = 33
+text = "Wave 1"
