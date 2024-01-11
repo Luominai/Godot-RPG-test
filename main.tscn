@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://djqxendqclm8j"]
+[gd_scene load_steps=19 format=3 uid="uid://djqxendqclm8j"]
 
 [ext_resource type="Texture2D" uid="uid://b0syytgp3u5e6" path="res://Sprites/battleback1.png" id="1_3ecbt"]
 [ext_resource type="Script" path="res://BattleController.gd" id="1_os5fl"]
@@ -25,7 +25,22 @@ expand_margin_bottom = 1.0
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5cbla"]
 bg_color = Color(0, 0.753695, 0.275801, 1)
 
-[node name="Control" type="Control"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_otldp"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6dp31"]
+bg_color = Color(0.317647, 0.317647, 0.317647, 0.215686)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_nh6ai"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_o6gqw"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_4pcis"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_goa4d"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_wyi6s"]
+
+[node name="Control" type="Control" node_paths=PackedStringArray("enemies", "actions")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -33,6 +48,8 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_os5fl")
+enemies = NodePath("Enemies")
+actions = NodePath("Actions")
 
 [node name="Background" type="TextureRect" parent="."]
 layout_mode = 1
@@ -176,6 +193,7 @@ alignment = 1
 
 [node name="Enemy" type="MarginContainer" parent="Enemies"]
 layout_mode = 2
+size_flags_vertical = 0
 theme_override_constants/margin_left = 30
 theme_override_constants/margin_right = 30
 script = ExtResource("3_j7ibh")
@@ -213,8 +231,17 @@ vertical_alignment = 1
 layout_mode = 2
 texture = ExtResource("5_yxisi")
 
+[node name="Button" type="Button" parent="Enemies/Enemy"]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxEmpty_otldp")
+theme_override_styles/hover = SubResource("StyleBoxFlat_6dp31")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_nh6ai")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_o6gqw")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_4pcis")
+
 [node name="Enemy2" type="MarginContainer" parent="Enemies"]
 layout_mode = 2
+size_flags_vertical = 0
 theme_override_constants/margin_left = 30
 theme_override_constants/margin_right = 30
 script = ExtResource("3_j7ibh")
@@ -252,8 +279,17 @@ vertical_alignment = 1
 layout_mode = 2
 texture = ExtResource("5_yxisi")
 
+[node name="Button" type="Button" parent="Enemies/Enemy2"]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxEmpty_otldp")
+theme_override_styles/hover = SubResource("StyleBoxFlat_6dp31")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_nh6ai")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_o6gqw")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_goa4d")
+
 [node name="Enemy3" type="MarginContainer" parent="Enemies"]
 layout_mode = 2
+size_flags_vertical = 0
 theme_override_constants/margin_left = 30
 theme_override_constants/margin_right = 30
 script = ExtResource("3_j7ibh")
@@ -290,6 +326,14 @@ vertical_alignment = 1
 [node name="TextureRect" type="TextureRect" parent="Enemies/Enemy3/VBoxContainer"]
 layout_mode = 2
 texture = ExtResource("5_yxisi")
+
+[node name="Button" type="Button" parent="Enemies/Enemy3"]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxEmpty_otldp")
+theme_override_styles/hover = SubResource("StyleBoxFlat_6dp31")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_nh6ai")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_o6gqw")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_wyi6s")
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="."]
 layout_mode = 0

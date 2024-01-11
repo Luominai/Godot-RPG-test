@@ -1,13 +1,15 @@
 extends Control
 
+@export var enemies : Node
+@export var actions : Node
+
+var selected_attacker : Character
+var selected_attack : Attack
+var selected_defender : Array
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	# testing that the function works as intended
-	#var attacker = load("res://Enemies/Gorge.tres")
-	#var attack = load("res://Attacks/Peck.tres")
-	#var defenders = [$Enemies/Enemy]
-	#use_attack(attacker, attack, defenders)
+	connect_enemy_selector_signals()
 	pass # Replace with function body.
 	
 func deal_damage(health_bar : ProgressBar, damage : int):
@@ -24,7 +26,16 @@ func use_attack(attacker : Character, attack : Attack, defenders : Array):
 			deal_damage(health_bar, damage)
 			
 	
-
+func connect_enemy_selector_signals():
+	for enemy in enemies.get_children():
+		# make it so when the enemy nodes are clicked, they emit a signal containing their node
+		var button = enemy.get_node("Button") as Button
+		button.disabled = true
+		button.pressed.connect(_on_enemy_selected.bind(enemy))
+		
+func _on_enemy_selected(enemy):
+	selected_defender = [enemy]
+	print(selected_defender)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
