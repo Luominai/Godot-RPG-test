@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://djqxendqclm8j"]
+[gd_scene load_steps=21 format=3 uid="uid://djqxendqclm8j"]
 
 [ext_resource type="Texture2D" uid="uid://b0syytgp3u5e6" path="res://Sprites/battleback1.png" id="1_3ecbt"]
 [ext_resource type="Script" path="res://BattleController.gd" id="1_os5fl"]
@@ -7,6 +7,8 @@
 [ext_resource type="Resource" uid="uid://c05fli1g4tdll" path="res://Enemies/Bird.tres" id="4_mg7ec"]
 [ext_resource type="Texture2D" uid="uid://da05t4jo3osg0" path="res://icon.svg" id="5_yxisi"]
 [ext_resource type="Resource" uid="uid://do87arefo2sfr" path="res://Enemies/Gorge.tres" id="6_gjiqw"]
+[ext_resource type="Texture2D" uid="uid://y3krkjok607u" path="res://Sprites/swords.png" id="6_oun0n"]
+[ext_resource type="Texture2D" uid="uid://bheevsdsrtwi0" path="res://Sprites/shield.png" id="7_ls2tk"]
 [ext_resource type="Script" path="res://Stage.gd" id="8_abxbq"]
 [ext_resource type="FontFile" uid="uid://o4v580u78pcn" path="res://testfont.ttf" id="9_iscsf"]
 
@@ -23,7 +25,7 @@ expand_margin_right = 1.0
 expand_margin_bottom = 1.0
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5cbla"]
-bg_color = Color(0, 0.753695, 0.275801, 1)
+bg_color = Color(0, 0.752941, 0.27451, 1)
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_otldp"]
 
@@ -67,7 +69,7 @@ anchor_top = 1.0
 anchor_bottom = 1.0
 offset_left = 300.0
 offset_top = -521.0
-offset_right = 463.0
+offset_right = 428.0
 offset_bottom = -312.0
 grow_vertical = 0
 script = ExtResource("3_85ihx")
@@ -78,17 +80,47 @@ layout_mode = 2
 texture = ExtResource("5_yxisi")
 stretch_mode = 2
 
-[node name="health" type="Label" parent="Character 1"]
+[node name="ProgressBar" type="ProgressBar" parent="Character 1"]
+custom_minimum_size = Vector2(0, 23)
 layout_mode = 2
-text = "your mother's health"
+size_flags_vertical = 1
+theme_override_styles/background = SubResource("StyleBoxFlat_84ipq")
+theme_override_styles/fill = SubResource("StyleBoxFlat_5cbla")
+value = 50.0
+show_percentage = false
 
-[node name="attack" type="Label" parent="Character 1"]
+[node name="health" type="Label" parent="Character 1/ProgressBar"]
+layout_mode = 2
+offset_right = 128.0
+offset_bottom = 23.0
+text = "urmomhealth
+"
+horizontal_alignment = 1
+
+[node name="attackContainer" type="HBoxContainer" parent="Character 1"]
+layout_mode = 2
+
+[node name="attackIcon" type="TextureRect" parent="Character 1/attackContainer"]
+layout_mode = 2
+texture = ExtResource("6_oun0n")
+expand_mode = 2
+
+[node name="attack" type="Label" parent="Character 1/attackContainer"]
 layout_mode = 2
 text = "tattacj"
 
-[node name="defense" type="Label" parent="Character 1"]
+[node name="defenseContainer" type="HBoxContainer" parent="Character 1"]
 layout_mode = 2
-text = "ppokemon shield"
+
+[node name="defenseIcon" type="TextureRect" parent="Character 1/defenseContainer"]
+layout_mode = 2
+texture = ExtResource("7_ls2tk")
+expand_mode = 2
+
+[node name="defense" type="Label" parent="Character 1/defenseContainer"]
+layout_mode = 2
+text = "ppshield
+"
 
 [node name="Character 2" type="VBoxContainer" parent="."]
 layout_mode = 1
@@ -97,7 +129,7 @@ anchor_top = 1.0
 anchor_bottom = 1.0
 offset_left = 154.0
 offset_top = -415.0
-offset_right = 317.0
+offset_right = 282.0
 offset_bottom = -206.0
 grow_vertical = 0
 script = ExtResource("3_85ihx")
@@ -108,17 +140,45 @@ layout_mode = 2
 texture = ExtResource("5_yxisi")
 stretch_mode = 2
 
-[node name="health" type="Label" parent="Character 2"]
+[node name="ProgressBar" type="ProgressBar" parent="Character 2"]
+custom_minimum_size = Vector2(0, 23)
 layout_mode = 2
-text = "your mother's health"
+size_flags_vertical = 1
+theme_override_styles/background = SubResource("StyleBoxFlat_84ipq")
+theme_override_styles/fill = SubResource("StyleBoxFlat_5cbla")
+value = 50.0
+show_percentage = false
 
-[node name="attack" type="Label" parent="Character 2"]
+[node name="health" type="Label" parent="Character 2/ProgressBar"]
+layout_mode = 2
+offset_right = 128.0
+offset_bottom = 23.0
+text = "urmomhealth"
+horizontal_alignment = 1
+
+[node name="attackContainer" type="HBoxContainer" parent="Character 2"]
+layout_mode = 2
+
+[node name="attackIcon" type="TextureRect" parent="Character 2/attackContainer"]
+layout_mode = 2
+texture = ExtResource("6_oun0n")
+expand_mode = 2
+
+[node name="attack" type="Label" parent="Character 2/attackContainer"]
 layout_mode = 2
 text = "tattacj"
 
-[node name="defense" type="Label" parent="Character 2"]
+[node name="defenseContainer" type="HBoxContainer" parent="Character 2"]
 layout_mode = 2
-text = "ppokemon shield"
+
+[node name="defenseIcon" type="TextureRect" parent="Character 2/defenseContainer"]
+layout_mode = 2
+texture = ExtResource("7_ls2tk")
+expand_mode = 2
+
+[node name="defense" type="Label" parent="Character 2/defenseContainer"]
+layout_mode = 2
+text = "ppshield"
 
 [node name="Character 3" type="VBoxContainer" parent="."]
 layout_mode = 1
@@ -127,7 +187,7 @@ anchor_top = 1.0
 anchor_bottom = 1.0
 offset_left = 7.0
 offset_top = -306.0
-offset_right = 170.0
+offset_right = 135.0
 offset_bottom = -97.0
 grow_vertical = 0
 script = ExtResource("3_85ihx")
@@ -138,17 +198,45 @@ layout_mode = 2
 texture = ExtResource("5_yxisi")
 stretch_mode = 2
 
-[node name="health" type="Label" parent="Character 3"]
+[node name="ProgressBar" type="ProgressBar" parent="Character 3"]
+custom_minimum_size = Vector2(0, 23)
 layout_mode = 2
-text = "your mother's health"
+size_flags_vertical = 1
+theme_override_styles/background = SubResource("StyleBoxFlat_84ipq")
+theme_override_styles/fill = SubResource("StyleBoxFlat_5cbla")
+value = 50.0
+show_percentage = false
 
-[node name="attack" type="Label" parent="Character 3"]
+[node name="health" type="Label" parent="Character 3/ProgressBar"]
+layout_mode = 2
+offset_right = 128.0
+offset_bottom = 23.0
+text = "urmomhealth"
+horizontal_alignment = 1
+
+[node name="attackContainer" type="HBoxContainer" parent="Character 3"]
+layout_mode = 2
+
+[node name="attackIcon" type="TextureRect" parent="Character 3/attackContainer"]
+layout_mode = 2
+texture = ExtResource("6_oun0n")
+expand_mode = 2
+
+[node name="attack" type="Label" parent="Character 3/attackContainer"]
 layout_mode = 2
 text = "tattacj"
 
-[node name="defense" type="Label" parent="Character 3"]
+[node name="defenseContainer" type="HBoxContainer" parent="Character 3"]
 layout_mode = 2
-text = "ppokemon shield"
+
+[node name="defenseIcon" type="TextureRect" parent="Character 3/defenseContainer"]
+layout_mode = 2
+texture = ExtResource("7_ls2tk")
+expand_mode = 2
+
+[node name="defense" type="Label" parent="Character 3/defenseContainer"]
+layout_mode = 2
+text = "ppshield"
 
 [node name="Actions" type="HBoxContainer" parent="."]
 layout_mode = 1
